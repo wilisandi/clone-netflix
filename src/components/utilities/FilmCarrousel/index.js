@@ -98,11 +98,11 @@ const FilmCarrousel = ({ children }) => {
 
     }, [children])
     return (
-        <div className='overflow-visible grid grid-cols-1'>
+        <div className='md:overflow-visible overflow-x-auto overflow-y-hidden grid grid-cols-1'>
             <div ref={gridEl} className='w-full grid grid-flow-col items-start justify-start transition-transform ease-out duration-500 gap-2  col-start-1 row-start-1 first:pl-10' style={{ transform: `translateX(-${translateX}px)` }}>
                 {children}
             </div>
-            <div className='col-start-1 row-start-1'>
+            <div className='col-start-1 row-start-1 md:block hidden'>
                 <div className=' flex justify-between h-full'>
                     <div className={`${curr == 1 ? null : "hidden"}`}></div>
                     <button onClick={prev} className={`relative top-0 bg-gradient-to-r to-transparent from-black text-white w-8 ${curr == 1 ? "hidden" : null}`}><FontAwesomeIcon icon={faChevronLeft} /></button>
