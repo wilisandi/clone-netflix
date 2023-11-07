@@ -7,6 +7,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-use'
+import ProfileDropDown from './profileDropDown'
+import Profil from "@/img/profile-blue.jpg"
 
 let typingTimer = null;
 const doneTypingInterval = 500;
@@ -44,12 +46,12 @@ const Navbar = () => {
   useEffect(() => {
     var path = window.location.href;
     var el = document.querySelectorAll(".item-nav");
-    el.forEach(x=>{
+    el.forEach(x => {
 
-      if(path.search(x.href)!=-1){
-        x.className ="pl-2 item-nav text-white font-bold";
-      }else{
-        x.className ="pl-2 item-nav";
+      if (path.search(x.href) != -1) {
+        x.className = "pl-2 item-nav text-white font-bold";
+      } else {
+        x.className = "pl-2 item-nav";
       }
     })
   }, [location]);
@@ -158,6 +160,9 @@ const Navbar = () => {
         <div className='relative cursor-pointer'>
           <button><FontAwesomeIcon icon={faBell} /></button>
           <span className='absolute -top-1 -end-2 scale-50 bg-red-600 rounded-full text-white text-xs p-1'> 9+</span>
+        </div>
+        <div className='flex items-center gap-1 cursor-pointer'>
+          <ProfileDropDown profileImage={Profil} />
         </div>
       </div>
     </nav>
