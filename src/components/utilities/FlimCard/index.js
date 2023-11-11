@@ -57,11 +57,11 @@ const FilmCard = ({ landscape = true, Key, Id, Title, Desc, Thumb, Poster, Ratin
         return (
             <div className='group'>
                 <FilmDialog Id={Id} Title={Title} Desc={Desc} Poster={Poster} Genres={Genres} IsAdult={IsAdult} Rating={Rating} Type={Type} Open={dialogIsOpen} SetOpen={setDialogIsOpen} />
-                <div className='opacity-0 md:group-hover:delay-500 md:group-hover:static md:md:group-hover:w-[250px] md:group-hover:w-[120px] md:h-[300px] h-[200px] md:w-[200px] w-[100px] ease-linear duration-300 transition-all'></div>
-                <div className='cursor-pointer md:group-hover:delay-500 md:group-hover:absolute z-[100] md:md:group-hover:-translate-y-[10%] md:group-hover:-translate-y-[10%] md:-mt-[300px] -mt-[200px]' onClick={handleDialogClick}>
+                <div className='opacity-0 md:group-hover:delay-150 md:group-hover:static md:md:group-hover:w-[250px] md:group-hover:w-[120px] md:h-[300px] h-[180px] md:w-[200px] w-[100px] ease-linear duration-300 transition-all'></div>
+                <div className='cursor-pointer md:group-hover:delay-150 md:group-hover:absolute z-[100] md:md:group-hover:-translate-y-[10%] md:group-hover:-translate-y-[10%] md:-mt-[300px] -mt-[180px]' onClick={handleDialogClick}>
                     <div className='relative'>
-                        <Image height={534} width={424} alt={"..."} src={`https://image.tmdb.org/t/p/original${Thumb}`} className='md:max-w-[200px] max-w-[100px] md:group-hover:delay-500 md:md:group-hover:max-w-[250px] md:group-hover:max-w-[120px] md:group-hover:max-h-none md:max-h-[300px] max-h-[200px] object-cover object-center ease-linear duration-300 bg-white/20 transition-all h-auto' loading='lazy' />
-                        <div className='grid gap-2 text-white absolute bottom-0 w-full px-3 py-6 bg-gradient-to-t from-black to-transparent opacity-0 md:group-hover:delay-500 md:group-hover:opacity-100'>
+                        <Image height={534} width={424} alt={"..."} src={`https://image.tmdb.org/t/p/original${Thumb}`} className='md:max-w-[200px] max-w-[100px] md:group-hover:delay-150 md:md:group-hover:max-w-[250px] md:group-hover:max-w-[120px] md:group-hover:h-auto md:h-[300px] h-[180px] object-cover object-center ease-linear duration-300 bg-white/20 transition-all' loading='lazy' />
+                        <div className='grid gap-2 text-white absolute bottom-0 w-full px-3 py-6 bg-gradient-to-t from-black to-transparent opacity-0 md:group-hover:delay-150 md:group-hover:opacity-100'>
                             <h6>{Title}</h6>
                             <div className='grid grid-cols-6 gap-2'>
                                 <button className='rounded-full aspect-square bg-white text-black border border-white focus:border-black focus:outline focus:outline-1 focus:outline-white'><FontAwesomeIcon icon={faPlay} /></button>

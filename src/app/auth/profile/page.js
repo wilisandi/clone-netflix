@@ -34,7 +34,7 @@ const profileList = [
 ];
 const Profile = () => {
   return (
-    <div className='h-full w-full flex flex-col items-center justify-center'>
+    <div className='h-screen w-screen flex flex-col items-center justify-center'>
       <h2 className='sm:font-semibold font-bold sm:text-7xl text-3xl py-5 text-white'>Siapa yang menonton?</h2>
       <div className='grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 w-full gap-10 py-4 md:px-40 px-10'>
         {profileList.map((profile)=>{

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faPlus, faVolumeMute, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 import YouTube from 'react-youtube'
+import Scrollbar from 'smooth-scrollbar'
 import FilmDialog from '../FilmDialog'
 let player = null;
 const Poster = ({Id,Thumb,Title,Desc,Type,Video,Rating,Genres=[]}) => {
@@ -71,9 +72,9 @@ const Poster = ({Id,Thumb,Title,Desc,Type,Video,Rating,Genres=[]}) => {
     }
   }
   useEffect(() => {
-    const mainElement = document.querySelector('.main');
+    var scroll = Scrollbar.get(document.getElementById("main"));
     const handleScroll = () => {
-      if(mainElement.scrollTop >= scrollThreshold){
+      if(scroll.scrollTop >= scrollThreshold){
         if(player){
           if(player.getPlayerState()==1){
             videoStop()
@@ -87,12 +88,22 @@ const Poster = ({Id,Thumb,Title,Desc,Type,Video,Rating,Genres=[]}) => {
           }
         }
       }
-      setIsScroll(mainElement.scrollTop >= scrollThreshold);
+      console.log(scroll.scrollTop,"scrolled")
+      setIsScroll(scroll.scrollTop >= scrollThreshold);
     };
-    handleScroll();
-    mainElement.addEventListener("scroll", handleScroll);
-    return () => mainElement.removeEventListener("scroll", handleScroll);
-  });
+    var checkScroll = setInterval(() => {
+      if(scroll==undefined){
+        scroll = Scrollbar.get(document.getElementById("main"));
+        handleScroll();
+        scroll.addListener(handleScroll);
+      }else{
+        clearInterval(checkScroll);
+      }
+    }, 500);
+    // return () => {
+    //   if(scroll)scroll.removeListener(handleScroll)
+    // };
+  },[]);
   return (
     <div className='relative w-full md:h-[80vh] h-[60vh]'>
       

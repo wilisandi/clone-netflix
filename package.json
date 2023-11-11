@@ -20,7 +20,8 @@
     "react-dom": "^18",
     "react-use": "^17.4.0",
     "react-youtube": "^10.1.0",
-    "simplebar-react": "^3.2.4"
+    "simplebar-react": "^3.2.4",
+    "smooth-scrollbar": "^8.8.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.35",

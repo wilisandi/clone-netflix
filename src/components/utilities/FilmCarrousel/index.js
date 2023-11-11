@@ -23,7 +23,6 @@ const FilmCarrousel = ({ children }) => {
     const next = (event) => {
         event?.preventDefault();
         var currCurrent = (curr === numberView ? numberView : curr + 1);
-        console.log(currCurrent,firstGap,"current")
         setCurr(currCurrent)
         if (currCurrent == 1) {
             settranslateX((0))
@@ -49,7 +48,6 @@ const FilmCarrousel = ({ children }) => {
         var totalView = 1;
         var groupView = {};
         var max = false;
-        console.log(childGrid,"childGrid")
         childGrid.forEach((child) => {
             var clientRects = child.getClientRects();
             if (clientRects.length != 0) {
@@ -81,7 +79,6 @@ const FilmCarrousel = ({ children }) => {
                 }
             }
         },);
-        console.log(groupView,"groupView")
         setViews(() => groupView)
         setnumberView(() => (totalView))
     }

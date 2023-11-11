@@ -67,7 +67,7 @@ const Beranda = async () => {
   }
 
   return (
-    <>
+    <div>
       <section>
         <Poster Id={poster.id} Thumb={poster.backdrop_path} Title={poster.original_title} Desc={poster.overview} Type={poster.media_type} Genres={poster.genre_names} Rating={poster.vote_average} Video={ytId} />
       </section>
@@ -112,7 +112,7 @@ const Beranda = async () => {
         </FilmCarrousel>
       </section>
       <div className='h-40'></div>
-    </>
+    </div>
   )
 }
 

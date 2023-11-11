@@ -36,7 +36,7 @@ const MoviePlay = ({ params }) => {
         getSimilar();
     }, [])
     return (
-        <div className='w-full h-full absolute z-[2000] overflow-auto'>
+        <div className='w-screen absolute z-[2000]'>
             {ytId != "" ? <YouTube videoId={`${ytId}`} opts={opts} className={`w-full overflow-hidden transition-all duration-500`} iframeClassName={`max-w-full w-full h-screen aspect-video`} onPlay={videoOnStart} /> : null}
 
             {semilar.length != 0 ?

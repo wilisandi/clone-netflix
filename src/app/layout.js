@@ -1,6 +1,5 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/components/utilities/Navbar'
 import 'simplebar-react/dist/simplebar.min.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 // Prevent fontawesome from adding its CSS since we did it manually above:
@@ -16,8 +15,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className='scroll-smooth' style={{scrollBehavior:'smooth'}}>
-      <body className={`${inter.className} bg-black overflow-hidden max-h-screen max-w-full`}>
-        <div className='main max-h-full max-w-full w-full h-full overflow-y-auto overflow-x-hidden'>
+      <body className={`${inter.className} bg-black overflow-hidden max-h-screen max-w-full`} suppressHydrationWarning={true}>
+        <div className='max-h-full max-w-full w-full h-full overflow-y-auto overflow-x-hidden'>
           {children}
         </div>
       </body>

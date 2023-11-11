@@ -29,9 +29,9 @@ const Login = () => {
                     </div>
                     <button className='w-full p-3 bg-netflix rounded-md' onClick={loginHandler}>Masuk</button>
                     <div className='flex justify-between mt-4'>
-                        <div class="flex items-center">
-                            <input type="checkbox" id='ingat-checkbox' value="" class="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600" />
-                            <label for="ingat-checkbox" class="ml-2 text-xs font-normal text-white/70">Ingat saya</label>
+                        <div className="flex items-center">
+                            <input type="checkbox" id='ingat-checkbox' value="" className="w-4 h-4 text-black bg-gray-100 border-gray-300 rounded dark:bg-gray-700 dark:border-gray-600" />
+                            <label htmlFor="ingat-checkbox" className="ml-2 text-xs font-normal text-white/70">Ingat saya</label>
                         </div>
                         <Link href={"/help"} className='font-light text-xs text-white/70 hover:underline' >Perlu bantuan?</Link>
                     </div>

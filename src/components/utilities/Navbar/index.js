@@ -9,6 +9,7 @@ import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-use'
 import ProfileDropDown from './profileDropDown'
 import Profil from "@/img/profile-blue.jpg"
+import Scrollbar from 'smooth-scrollbar'
 
 let typingTimer = null;
 const doneTypingInterval = 500;
@@ -84,14 +85,24 @@ const Navbar = () => {
 
   const scrollThreshold = 50;
   useEffect(() => {
-    const mainElement = document.querySelector('.main');
     const handleScroll = () => {
-      setIsScroll(mainElement.scrollTop >= scrollThreshold);
+      console.log('okee')
+      setIsScroll(scroll.scrollTop >= scrollThreshold);
     };
-    handleScroll();
-    mainElement.addEventListener("scroll", handleScroll);
-    return () => mainElement.removeEventListener("scroll", handleScroll);
-  });
+    var scroll = Scrollbar.get(document.getElementById("main"));
+    var checkScroll = setInterval(() => {
+      if(scroll==undefined){
+        scroll = Scrollbar.get(document.getElementById("main"));
+        handleScroll();
+        scroll.addListener(handleScroll);
+      }else{
+        clearInterval(checkScroll);
+      }
+    }, 500);
+    return () => {
+      if(scroll)scroll.removeListener(handleScroll)
+    };
+  },[]);
 
   return (
     <nav className={`fixed flex md:flex-row w-full items-center justify-between py-3 px-6 top-0 h-14 transition-all duration-300 ease-out z-[200] ${isScroll ? 'bg-black' : 'bg-transparent'}`}>
