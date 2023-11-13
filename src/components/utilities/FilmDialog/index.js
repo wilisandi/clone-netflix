@@ -86,7 +86,6 @@ const FilmDialog = ({ Open, SetOpen, Id, Title, Desc, Poster, Rating, Genres = [
     const getVideo = async () => {
         if (Type == "movie") {
             var video = await fetchVideoMovie(Id);
-            console.log(video, "movie")
             if (video && video.length != 0) {
                 UrlPlay.current = `/movie/play/${Id}/`;
                 var videoIndex = Math.floor(Math.random() * ((video.length - 1) - 0 + 1)) + 0;
@@ -94,7 +93,6 @@ const FilmDialog = ({ Open, SetOpen, Id, Title, Desc, Poster, Rating, Genres = [
             }
         } else {
             var video = await fetchVideoTv(Id);
-            console.log(video, "tv")
             if (video && video.length != 0) {
                 UrlPlay.current = `/tv/play/${Id}/`;
                 var videoIndex = Math.floor(Math.random() * ((video.length - 1) - 0 + 1)) + 0;
@@ -111,7 +109,6 @@ const FilmDialog = ({ Open, SetOpen, Id, Title, Desc, Poster, Rating, Genres = [
     const getDetail = async () => {
         if (Type == "movie") {
             var detail = await fetchMovieDetail(Id);
-            console.log(detail, "detailmovie")
             if (detail) {
                 setReleaseDate(new Date(detail.release_date).getFullYear());
                 if (detail.production_companies) {
@@ -120,7 +117,6 @@ const FilmDialog = ({ Open, SetOpen, Id, Title, Desc, Poster, Rating, Genres = [
             }
         } else {
             var detail = await fetchTvDetail(Id);
-            console.log(detail, "detailtv")
             if (detail) {
                 setNumberSeason(detail.number_of_seasons)
             }
@@ -130,13 +126,11 @@ const FilmDialog = ({ Open, SetOpen, Id, Title, Desc, Poster, Rating, Genres = [
     const getSimilar = async () => {
         if (Type == "movie") {
             var detail = await fetchSimilarMovie(Id);
-            console.log(detail, "semilarmovie")
             if (detail) {
                 setSemilar(detail.results)
             }
         } else {
             var detail = await fetchSimilarTV(Id);
-            console.log(detail, "semilartv")
             if (detail) {
                 setSemilar(detail.results)
             }

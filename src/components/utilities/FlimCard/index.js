@@ -2,8 +2,9 @@
 import { faChevronDown, faPlay, faPlus, faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FilmDialog from '../FilmDialog'
+import { getBase64ImageUrl } from '@/lib/api'
 
 const FilmCard = ({ landscape = true, Key, Id, Title, Desc, Thumb, Poster, Rating, Genres = [], IsAdult = false, Type = "movie" }) => {
     const Persen = Math.round(((Rating || 0) / 10) * 100);

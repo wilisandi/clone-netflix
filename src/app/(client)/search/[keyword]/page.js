@@ -6,7 +6,6 @@ import Header from '@/components/utilities/Header';
 import FilmCarrousel from '@/components/utilities/FilmCarrousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import Scrollbar from 'smooth-scrollbar'
 
 const Search = ({ params }) => {
   const [page, setPage] = useState(1);
@@ -18,7 +17,6 @@ const Search = ({ params }) => {
   let chunk = useRef(7);
   const [arrMovie, setArrMovie] = useState([]);
   const fetchSearch = async () => {
-    console.log(page,"gett")
     var Search = await fetchPageSearch(params.keyword, page);
     totalPage.current = Search.total_pages;
     totalResults.current = Search.total_results;
@@ -44,7 +42,6 @@ const Search = ({ params }) => {
           tempArrMovie.push(chunked)
         }
       }
-      console.log(tempArrMovie,"ass")
       setArrMovie(tempArrMovie);
       if(!isEnd){
         if(scroll.current!=undefined){
@@ -78,7 +75,6 @@ const Search = ({ params }) => {
         if (!isLoading) {
           if ((currentScrollPos + scroll.current.containerEl.clientHeight) >= (scroll.current.containerEl.scrollHeight - 3)) {
             if (page < totalPage.current) {
-              console.log("mari sini")
               setPage(page + 1);
             }
           }
@@ -90,7 +86,6 @@ const Search = ({ params }) => {
       if(scroll.current==undefined){
         scroll.current = Scrollbar.get(document.getElementById("main"));;
       }else{
-        console.log("iniiit")
         scroll.current.addListener(handleScroll)
         clearInterval(checkScroll);
       }

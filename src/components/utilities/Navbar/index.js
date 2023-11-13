@@ -86,7 +86,6 @@ const Navbar = () => {
   const scrollThreshold = 50;
   useEffect(() => {
     const handleScroll = () => {
-      console.log('okee')
       setIsScroll(scroll.scrollTop >= scrollThreshold);
     };
     var scroll = Scrollbar.get(document.getElementById("main"));

@@ -17,7 +17,6 @@ export const fetchPageSearch = async (query, page = 1, adult = true) => {
       const search = await resSearch.json();
       return search;
     } catch (error) {
-      console.error('Error fetching data:', error);
       return { page: 0, results: [], total_pages: 0 };
     }
   } else {
@@ -40,7 +39,6 @@ export const fetchSearchResults = async (query,page=1) => {
       const search = await resSearch.json();
       return search.results;
     } catch (error) {
-      console.error('Error fetching data:', error);
       return [];
     }
   } else {
@@ -49,7 +47,12 @@ export const fetchSearchResults = async (query,page=1) => {
 }
 
 // Other
-
+export const getBase64ImageUrl = async(imageId)=> {
+  const response = await fetch(`https://image.tmdb.org/t/p/original${imageId}`);
+  const buffer = await response.arrayBuffer();
+  const data = Buffer.from(buffer).toString('base64');
+  return `data:image/webp;base64,${data}`;
+}
 export const fetchTrending = async () => {
   const urlTrending = `${process.env.NEXT_PUBLIC_BaseUrl_TMDB}trending/all/day?language=en-US`;
   const optionsTrending = {

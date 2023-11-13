@@ -14,7 +14,6 @@ const Movie = async () => {
     return array;
   }
   const mappingGenres = (arrTarget, arrGenre) => {
-    console.log(arrTarget, "Target")
     var data = arrTarget.results.map((item) => {
       var obj = item;
       var genre_names = [];

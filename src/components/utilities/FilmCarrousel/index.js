@@ -2,6 +2,7 @@
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useRef, useState } from 'react'
+import { useStopWheel } from '../SmoothScroll/disableWheel'
 
 const FilmCarrousel = ({ children }) => {
     const [curr, setCurr] = useState(1)
@@ -10,6 +11,7 @@ const FilmCarrousel = ({ children }) => {
     const [views, setViews] = useState({});
     const [numberView, setnumberView] = useState(1);
     const gridEl = useRef();
+    const stopWheelRef = useStopWheel();
     const prev = (event) => {
         event?.preventDefault();
         var currCurrent = (curr === 1 ? 1 : curr - 1);
@@ -95,7 +97,7 @@ const FilmCarrousel = ({ children }) => {
 
     }, [children])
     return (
-        <div className='md:overflow-visible overflow-x-auto overflow-y-hidden grid grid-cols-1'>
+        <div ref={stopWheelRef} className='md:overflow-visible overflow-x-auto overflow-y-hidden grid grid-cols-1'>
             <div ref={gridEl} className='w-full grid grid-flow-col items-start justify-start transition-transform ease-out duration-500 gap-2  col-start-1 row-start-1 first:pl-10' style={{ transform: `translateX(-${translateX}px)` }}>
                 {children}
             </div>

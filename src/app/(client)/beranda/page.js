@@ -1,10 +1,8 @@
 import FilmCarrousel from '@/components/utilities/FilmCarrousel';
 import FilmCard from '@/components/utilities/FlimCard';
 import Header from '@/components/utilities/Header';
-import Navbar from '@/components/utilities/Navbar'
 import Poster from '@/components/utilities/Poster'
 import { fetchMovieGenres, fetchPopulerMovie, fetchPopulerTV, fetchTVGenres, fetchTrending, fetchUpcomingMovie, fetchVideoMovie } from '@/lib/api';
-import Image from 'next/image';
 import React from 'react'
 
 const Beranda = async () => {

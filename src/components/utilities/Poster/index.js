@@ -88,7 +88,6 @@ const Poster = ({Id,Thumb,Title,Desc,Type,Video,Rating,Genres=[]}) => {
           }
         }
       }
-      console.log(scroll.scrollTop,"scrolled")
       setIsScroll(scroll.scrollTop >= scrollThreshold);
     };
     var checkScroll = setInterval(() => {
